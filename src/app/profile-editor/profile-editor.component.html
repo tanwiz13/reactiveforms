@@ -1,0 +1,49 @@
+<form [formGroup]="profileForm">
+  <div id="firstdiv">
+    <label>
+      First Name:
+      <input type="text" formControlName="firstname">
+      <span *ngIf="!profileForm.controls['firstname'].valid">*</span>
+    </label>
+    <label>
+      Last Name:
+      <input type="text" formControlName="lastname">
+      <span *ngIf="!profileForm.controls['lastname'].valid">*</span>
+    </label>
+  </div>
+  <div id="seconddiv">
+    <label>
+      Email:
+      <input type="text" formControlName="email">
+      <span *ngIf="!profileForm.controls['email'].valid">*</span>
+    </label>
+    <label>
+      Empid:
+      <input type="text" formControlName="empid">
+      <span *ngIf="!profileForm.controls['empid'].valid">*</span>
+    </label>
+  </div>
+  <div id="thirddiv">  
+    <label>
+      Password:
+      <input type="password" formControlName="password">
+      <span *ngIf="!profileForm.controls['password'].valid">*</span>
+    </label>
+
+    <label>
+      Confirm Password:
+      <input type="password" formControlName="cpassword" (keyup)="check()" formControlName="cpassword">
+      <span *ngIf="!profileForm.controls['cpassword'].valid">*</span>
+    </label>
+  </div>
+  <div id="fourthdiv">
+    <label>
+      Gender:
+      <input type="text" formControlName="gender">
+      <span *ngIf="!profileForm.controls['gender'].valid">*</span>
+    </label>
+  </div>
+  <a routerLink="/show"> 
+  <button  id="buttondiv" type="submit" [disabled]="!profileForm.valid" (click)="storeValue()" >Submit</button>
+   </a> 
+</form>
