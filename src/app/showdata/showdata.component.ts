@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router,RouterModule,Routes} from '@angular/router';
 
 @Component({
   selector: 'app-showdata',
@@ -7,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowdataComponent implements OnInit {
   storedData;
-  constructor() {
+  constructor(private route:Router) {
     this.storedData = JSON.parse(localStorage.getItem("data"));
-   }
+  }
+  editData(){
+    this.route.navigate(['/edit']);
+  }
 
   ngOnInit() {
+
   }
 
 }

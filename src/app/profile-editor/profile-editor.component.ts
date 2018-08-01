@@ -20,8 +20,11 @@ export class ProfileEditorComponent implements OnInit {
     }
   }
 
+
   storeValue(){
+    console.log("form is submitedd")
     localStorage.setItem("data",JSON.stringify(this.profileForm.value));
+    console.log(this.profileForm.value);
   }
   constructor() { 
     this.profileForm = new FormGroup({
@@ -63,6 +66,17 @@ export class ProfileEditorComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(localStorage.getItem("data")!=null){
+      var editback=JSON.parse(localStorage.getItem("data"));
+      this.profileForm.patchValue({
+        firstname:editback.firstname,
+        lastname:editback.lastname,
+        gender:editback.gender,
+        email:editback.email,
+        password:editback.password,
+        empid:editback.empid,
+     });
+   } 
   }
 
 }
