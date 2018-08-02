@@ -5,7 +5,7 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
 import { ShowdataComponent } from './showdata/showdata.component';
 
 const routes: Routes = [
-  { path: 'edit', component: ProfileEditorComponent},
+  { path: 'edit', component: ProfileEditorComponent },
   { path: 'show', component: ShowdataComponent},
   { path: '', component: ProfileEditorComponent}
 

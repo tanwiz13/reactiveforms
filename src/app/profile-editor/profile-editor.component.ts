@@ -27,6 +27,7 @@ export class ProfileEditorComponent implements OnInit {
         return this.passcheck;
     }
 
+
   storeValue(){
     console.log("form is submitedd")
     localStorage.setItem("data",JSON.stringify(this.profileForm.value));

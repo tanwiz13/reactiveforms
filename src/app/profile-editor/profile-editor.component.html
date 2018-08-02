@@ -25,6 +25,7 @@
 
     <label>
       Password:
+<<<<<<< HEAD
       <input #ref id="passworddiv"type={{type}} formControlName="password">
       <span *ngIf="!profileForm.controls['password'].valid && profileForm.controls['password'].touched&&profileForm.controls['password'].dirty">*Enter at least one number,capital letter,small letter,special character</span>
     </label><span id="eye" (click)="showHide()" class="glyphicon glyphicon-eye-open"></span><br />
@@ -32,6 +33,15 @@
       Confirm Password:
       <input #ref1 id="cpassworddiv"type="password" formControlName="cpassword"  formControlName="cpassword">
       <span *ngIf="!passcheck&&!profileForm.controls['cpassword'].valid&&profileForm.controls['cpassword'].touched&&profileForm.controls['cpassword'].dirty&& ref.value != ref1.value">*Password doesnt match</span>
+=======
+      <input id="passworddiv"type="password" formControlName="password">
+      <span *ngIf="!profileForm.controls['password'].valid && profileForm.controls['password'].touched&&profileForm.controls['password'].dirty">*Enter at least one number,capital letter,small letter,special character</span>
+    </label><br />
+    <label>
+      Confirm Password:
+      <input id="cpassworddiv"type="password" formControlName="cpassword" (keyup)="check()" formControlName="cpassword">
+      <span *ngIf="!profileForm.controls['cpassword'].valid&&profileForm.controls['cpassword'].touched&&profileForm.controls['cpassword'].dirty">*Password doesnt match</span>
+>>>>>>> 665def01ad679b05153fe58d84c6f24d60f5bb6f
     </label><br />
   
     <label>

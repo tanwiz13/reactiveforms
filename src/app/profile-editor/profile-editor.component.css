@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
 
 
+=======
+>>>>>>> 665def01ad679b05153fe58d84c6f24d60f5bb6f
 #firstnamediv,#lastnamediv,#emaildiv,#empiddiv,#genderdiv,#passworddiv,#cpassworddiv{ 
     margin:10px;
 }
