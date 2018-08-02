@@ -1,49 +1,45 @@
-<form [formGroup]="profileForm">
-  <div id="firstdiv">
+<form [formGroup]="profileForm" (ngSubmit)="storeValue()">
+  
     <label>
       First Name:
-      <input type="text" formControlName="firstname">
-      <span *ngIf="!profileForm.controls['firstname'].valid">*</span>
-    </label>
+      <input id="firstnamediv" type="text" formControlName="firstname">
+      <span *ngIf="!profileForm.controls['firstname'].valid&&profileForm.controls['firstname'].touched&&profileForm.controls['firstname'].dirty">*Enter alphabets only</span>
+    </label><br />
     <label>
       Last Name:
-      <input type="text" formControlName="lastname">
-      <span *ngIf="!profileForm.controls['lastname'].valid">*</span>
-    </label>
-  </div>
-  <div id="seconddiv">
+      <input id="lastnamediv" type="text" formControlName="lastname">
+      <span *ngIf="!profileForm.controls['lastname'].valid&&profileForm.controls['lastname'].touched&&profileForm.controls['lastname'].dirty">*Enter alphabets only</span>
+    </label><br />
+  
     <label>
       Email:
-      <input type="text" formControlName="email">
-      <span *ngIf="!profileForm.controls['email'].valid">*</span>
-    </label>
+      <input id="emaildiv" type="text" formControlName="email">
+      <span *ngIf="!profileForm.controls['email'].valid&&profileForm.controls['email'].touched&&profileForm.controls['email'].dirty">*Enter a valid email</span>
+    </label><br />
     <label>
       Empid:
-      <input type="text" formControlName="empid">
-      <span *ngIf="!profileForm.controls['empid'].valid">*</span>
-    </label>
-  </div>
-  <div id="thirddiv">  
-    <label>
-      Password:
-      <input type="password" formControlName="password">
-      <span *ngIf="!profileForm.controls['password'].valid">*</span>
-    </label>
+      <input id="empiddiv" type="text" formControlName="empid">
+      <span *ngIf="!profileForm.controls['empid'].valid&&profileForm.controls['empid'].touched&&profileForm.controls['empid'].dirty">*Enter numbers only</span>
+    </label><br />
+  
 
     <label>
+      Password:
+      <input #ref id="passworddiv"type={{type}} formControlName="password">
+      <span *ngIf="!profileForm.controls['password'].valid && profileForm.controls['password'].touched&&profileForm.controls['password'].dirty">*Enter at least one number,capital letter,small letter,special character</span>
+    </label><span id="eye" (click)="showHide()" class="glyphicon glyphicon-eye-open"></span><br />
+    <label>
       Confirm Password:
-      <input type="password" formControlName="cpassword" (keyup)="check()" formControlName="cpassword">
-      <span *ngIf="!profileForm.controls['cpassword'].valid">*</span>
-    </label>
-  </div>
-  <div id="fourthdiv">
+      <input #ref1 id="cpassworddiv"type="password" formControlName="cpassword"  formControlName="cpassword">
+      <span *ngIf="!passcheck&&!profileForm.controls['cpassword'].valid&&profileForm.controls['cpassword'].touched&&profileForm.controls['cpassword'].dirty&& ref.value != ref1.value">*Password doesnt match</span>
+    </label><br />
+  
     <label>
       Gender:
-      <input type="text" formControlName="gender">
-      <span *ngIf="!profileForm.controls['gender'].valid">*</span>
-    </label>
-  </div>
-  <a routerLink="/show"> 
-  <button  id="buttondiv" type="submit" [disabled]="!profileForm.valid" (click)="storeValue()" >Submit</button>
-   </a> 
+      <input id="genderdiv" type="text" formControlName="gender">
+      <span *ngIf="!profileForm.controls['gender'].valid && profileForm.controls['gender'].touched && profileForm.controls['gender'].dirty">*Enter only alphabets</span>
+    </label><br />
+  <a routerLink='/show'>
+  <button  id="buttondiv" type="submit" [disabled]="!profileForm.valid" >Submit</button>
+  </a>
 </form>
